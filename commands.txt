@@ -1,0 +1,170 @@
+//Comando para inicialiar o package.json
+yarn init -y
+
+//Adicionar o express
+yarn add express
+
+//Typescript como dependência de desenvolvimento
+yarn add typescript -D
+
+//Gerar o arquivo tsconfig.json
+yarn tsc --init
+
+//Converter o código typescript da pasta './src' para javascript na pasta './dist'
+//Ver arquivo tsconfig.json
+yarn tsc
+
+//Toda ver que a lib der erro, instalar os tipos da lib em dev (não é necessário em prod)
+yarn add @types/express -D
+
+
+//Converter para javascrit e rodar o servidor
+yarn tsc
+node dist/server.js
+
+//Convertor de arquivos de ts para js e mantem o servidor rodando após alterações de arquivos
+//tsc + nodemon
+yarn add ts-node-dev -D
+
+
+//Para padronização do código
+yarn add eslint -D
+
+//Para executar o eslint
+yarn eslint --init
+
+//Instalar as dependência depois das configurações
+yarn add -D @typescript-eslint/eslint-plugin@latest eslint-config-airbnb-base@latest eslint-plugin-import@^2.20.1 @typescript-eslint/parser@latest
+
+//Para corrigir a importação de arquivos no typescript
+ yarn add -D eslint-import-resolver-typescript
+
+ //Adiconar o prettier no projeto
+ yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
+
+ //Lib de id's únicos
+ yarn add uuidv4
+
+ //Lib ou (uma da melhores bibliotecas para trabalhar com datas)
+ yarn add date-fns
+
+
+ //typeorm - Object relational mapping e pg (postgres drivers)
+ yarn add typeorm pg
+
+
+// script para rodar as opções do typeorm
+yarn typeorm
+
+// criar a tabela appointments
+yarn typeorm migration:create -n CreateAppointments
+
+//para executar as migrations
+yarn typeorm migration:run
+
+
+//para reverter as migrations
+yarn typeorm migration:revert
+
+
+// para ver as migrations que foram executadas
+yarn typeorm migration:show
+
+
+yarn add reflect-metadata
+
+
+//Criação da tabela de usuários
+yarn typeorm migration:create -n CreateUsers
+
+//Criar as tabelas na pasta de migrations
+yarn typeorm migration:run
+
+
+// Criar uma migration para alterar campos em uma tabela ja existente
+yarn typeorm migration:create -n AlterProviderFieldToProviderId
+
+// Biblioteca de criptografia
+yarn add bcryptjs
+
+//adicionar os tipos da biblioteca
+yarn add -D @types/bcryptjs
+
+//Lib para gerar autenticação JWT
+yarn add jsonwebtoken
+
+//adicionar os tipos da biblioteca
+yarn add -D @types/jsonwebtoken
+
+//lib para lhe dar com upload de arquivos
+yarn add multer
+
+//adicionar os tipos da biblioteca
+yarn add -D @types/multer
+
+//pacote para padronizar os erros asyncs
+yarn add express-async-errors
+
+//biblioteca de segurança de acesso das rotas das api's
+yarn add cors
+
+//e as referencias a lib
+yarn add @types/cors
+
+//link para consultar os ícones do vs https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme
+configurar no arquivo settings.json para melhor estrutura do projeto (como achar melhor)
+
+//lib para entender as rotas com @ configuradas
+yarn add tsconfig-paths -D
+
+//lib de injeção de dependência
+yarn add tsyringe
+
+###################################################################################
+#Testes automatizados
+
+Que a nossa aplicação continue funcionando independente do número de novas funcionalidades e do número de devs no time
+
+1. Testes unitários (TDD)
+JAMAIS: Chamada à uma API e efeito colateral.
+
+Testam funcionalidade específicas da nossa aplicação (precisam ser funcões puras)
+
+2. Testes de integração
+
+Testam uma funcionalidade completa, passando por várias camadas da aplicação.
+
+Route --> Controller --> Serviço --> Repositório ...
+
+3. Testes E2E
+
+Testes que simulam a ação do usuário dentro da nossa aplicação.
+
+1. Clique no input de email
+2. Preencha teddy@test.com
+3. Clique no input de senha
+4. Preencha 123456
+5. Clique no botão "Logar"
+6. Espero que a página tenha enviado o usuário para o dashboard
+
+#TDD (Test Driven Development)
+
+- Quando ele se cadastrar na aplicação, ele deve receber um email de boas-vindas;
+
+################################################
+
+//lib de Testes
+yarn add jest -D
+
+//configurar os tipos de testes que serão realizados
+yarn jest --init
+
+//typescript para o jest
+yarn add ts-jest -D
+
+//Adiconar o pacote de tipagem do jest
+yarn add @types/jest -D
+
+
+//para armazenar arquivos
+Amazon S3 , Google Cloud Storage, DO Spaces

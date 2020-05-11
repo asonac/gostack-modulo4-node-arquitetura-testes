@@ -8,9 +8,6 @@ const appointmentsController = new AppointmentsController();
 
 appointmentsRouter.use(ensureAuthenticated);
 
-// DTO - Data Transfer Object
-// Rota: Receber a requisição, chamar outro arquivo, devolver uma resposta
-
 appointmentsRouter.post('/', appointmentsController.create);
 
 export default appointmentsRouter;

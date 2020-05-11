@@ -168,3 +168,39 @@ yarn add @types/jest -D
 
 //para armazenar arquivos
 Amazon S3 , Google Cloud Storage, DO Spaces
+
+1. Rotas e controllers
+2. Repositório de tokens (typeORM)
+3. Criar migration de tokens
+4. Provider de envio de e-mail (DEV)
+5. Registrar providers no container
+5. Testar tudo
+
+// Comando para criar a arquivos do typeorm para criar a tabela
+yarn typeorm migration:create -n CreateUserTokens
+
+// Comando para criar a tebala no banco
+yarn typeorm migration:run
+
+//Lib para envio de email
+ yarn add nodemailer
+
+// adicionar a tipagem da lib nodemailer
+yarn add @types/nodemailer
+
+
+// dicas de node template engines
+EJS dentro do express
+Handlebars
+Nunjucks
+
+//lib de template de email
+yarn add handlebars
+
+//adicionando uma coluna na tabela de appointments
+yarn typeorm migration:create -n AddUserIdToAppointments
+
+//Rodar as alteralçoes
+ yarn typeorm migration:run
+
+

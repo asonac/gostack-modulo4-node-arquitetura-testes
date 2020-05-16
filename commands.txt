@@ -204,3 +204,42 @@ yarn typeorm migration:create -n AddUserIdToAppointments
  yarn typeorm migration:run
 
 
+ //Instalar o pacote do mongodb
+ yarn add mongodb
+
+ //Tipagem da lib
+ yarn add @types/mongodb -D
+
+
+ //validação de envio das informações nas rotas
+ yarn add celebrate
+
+ //a lib do 'celebrate' utiliza outra lib 'joi' é preciso adicionar a tipagem dela
+ yarn add @types/hapi__joi -D
+
+ //biblioteca dotenv
+ yarn add dotenv
+
+ //class transformer lib
+ yarn add class-transformer
+
+ //aws sdk para o nodemailer utilizar o settings
+ yarn add aws-sdk
+
+ //lib para pegar o tipo do arquivo enviado
+ yarn add mime
+
+//modulo para interagir com o radis
+yarn add ioredis
+
+//tipagem do ioredis
+yarn add @types/ioredis -D
+
+//Para a prevenção de Brute Force (evitar milhares de requisições ao mesmo tempo)
+yarn add rate-limiter-flexible
+
+//Instalar o realizados
+yarn add redis
+
+//tipagem do redis
+yarn add @types/redis -D

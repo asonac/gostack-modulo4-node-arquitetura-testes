@@ -1,4 +1,6 @@
 import AppError from '@shared/errors/AppError';
+import FakeNotificationsRepository from '@modules/notifications/repositories/fakes/FakeNotificationsRepository';
+import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider';
 import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRepository';
 import CreateAppoitmentService from './CreateAppointmentService';
 
@@ -6,9 +8,18 @@ import CreateAppoitmentService from './CreateAppointmentService';
 describe('CreateAppoitment', () => {
   let fakeAppoinmentsRepository: FakeAppointmentsRepository;
   let createAppointment: CreateAppoitmentService;
+  let fakeNotificationsRepository: FakeNotificationsRepository;
+  let fakeCacheProvider: FakeCacheProvider;
+
   beforeEach(() => {
     fakeAppoinmentsRepository = new FakeAppointmentsRepository();
-    createAppointment = new CreateAppoitmentService(fakeAppoinmentsRepository);
+    fakeNotificationsRepository = new FakeNotificationsRepository();
+    fakeCacheProvider = new FakeCacheProvider();
+    createAppointment = new CreateAppoitmentService(
+      fakeAppoinmentsRepository,
+      fakeNotificationsRepository,
+      fakeCacheProvider,
+    );
   });
 
   it('should be able to create a new appointment', async () => {
@@ -27,7 +38,17 @@ describe('CreateAppoitment', () => {
   });
 
   it('should not be able to create two appointments at the same time', async () => {
-    const appointmentDate = new Date(2020, 4, 12, 11);
+    const dateToday = new Date(Date.now());
+    dateToday.setHours(10);
+
+    const appointmentDate = new Date(
+      dateToday.getFullYear(),
+      dateToday.getMonth(),
+      dateToday.getDate() + 2,
+      dateToday.getHours(),
+      dateToday.getMinutes(),
+      dateToday.getSeconds(),
+    );
 
     await createAppointment.execute({
       date: appointmentDate,

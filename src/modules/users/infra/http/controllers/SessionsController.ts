@@ -1,6 +1,8 @@
 import { Request, Response } from 'express';
-import AuthenticateUserService from '@modules/users/services/AuthenticateUserService';
 import { container } from 'tsyringe';
+import { classToClass } from 'class-transformer';
+
+import AuthenticateUserService from '@modules/users/services/AuthenticateUserService';
 
 // No controller ter no máximo 5 métodos, index, show, create, update, delete
 export default class SessionsController {
@@ -11,8 +13,6 @@ export default class SessionsController {
 
     const { user, token } = await authenticateUser.execute({ email, password });
 
-    delete user.password;
-
-    return response.json({ user, token });
+    return response.json({ user: classToClass(user), token });
   }
 }

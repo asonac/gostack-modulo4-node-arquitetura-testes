@@ -1,5 +1,5 @@
-import { startOfHour, isBefore, getHours, format } from 'date-fns';
 import { inject, injectable } from 'tsyringe';
+import { startOfHour, isBefore, getHours, format } from 'date-fns';
 
 import AppError from '@shared/errors/AppError';
 import INotificationsRepository from '@modules/notifications/repositories/INotificationsRepository';
@@ -67,6 +67,7 @@ class CreateAppointmentService {
 
     const findAppointmentInSameDate = await this.appointmentsRepository.findByDate(
       appointmentDate,
+      provider_id,
     );
 
     if (findAppointmentInSameDate) {
